@@ -59,6 +59,7 @@ export default function PortfolioMain() {
         <div id="product" className="center-content">
           <h1># Developed Product List</h1>
           <p>準備中..... しばらくお待ちください.</p>
+          <a href="https://github.com/lunasky-hy" target="_blank">Github</a>
         </div>
       </div>
       <div id="skillset-container" className="full-height-content">
@@ -75,7 +76,7 @@ export default function PortfolioMain() {
       </div>
       <div id="comment-container" className="full-height-content">
         <div id="comment" className="center-content">
-          <h1># Comments & Contact</h1>
+          <h1># Comments & Contacts</h1>
           <p>準備中..... しばらくお待ちください.</p>
         </div>
       </div>

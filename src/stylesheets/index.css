@@ -52,22 +52,45 @@ h1 {
 }
 
 .full-height-content {
+  display: flex;
   height: 100vh;
   width: 100%;
 }
 
+.full-height-content > .center-content > h1 {
+  border-bottom: 1px solid;
+}
+
+.center-content {
+  align-items: center;
+  align-content: center;
+  margin: auto;
+}
+
 
 /* custom setting for each id or tag/class */
+img#title-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  object-fit:cover;
+  z-index: 1;
+}
+
 #index-title {
-  flex-direction: column;
+  position: relative;
   align-content: center;
+  margin: auto;
   width: max-content;
-  margin: 0 auto;
+  z-index: 2;
 }
 
 h1#title-console {
   font-family: "Google Sans Code", monospace;
   text-align: center;
+  border-bottom: 0px;
 }
 
 h1#title-response {
@@ -83,6 +106,7 @@ h1#title-response {
 #index-list {
   font-size: 2em;
   margin-left: 0.5em;
+  list-style-type: circle;
 }
 
 #index-list > li {
@@ -96,9 +120,31 @@ h1#title-response {
   margin-bottom: -1px;
 }
 
-#aboutme {
-  background-color: #EEE;
+#readme-container {
+  background-color: #efefff;
   color: #111;
+}
+
+#readme > h1 {
+  font-size: 2.5em;
+}
+#readme > p {
+  font-size: 1.25em;
+}
+
+#product-container {
+  background-color: #f0e2c8;
+  color: #333;
+}
+
+#interest-container {
+  background-color: #afe0d9;
+  color: #333;
+}
+
+#comment-container {
+  background-color: #fff;
+  color: #333;
 }
 
 @keyframes titleFadeiIn {

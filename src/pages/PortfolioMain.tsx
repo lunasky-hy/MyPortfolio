@@ -1,5 +1,6 @@
 import React from "react";
 import MoonNightImg from "../assets/moon_night.png";
+import DevelopmentList from "./components/DevelopmentList";
 
 export default function PortfolioMain() {
   const [displayedTitleLen, setTitleLen] = React.useState(0);
@@ -39,12 +40,15 @@ export default function PortfolioMain() {
       <div id="readme-container" className="full-height-content">
         <div id="readme" className="center-content">
           <h1># Read Me</h1>
+          <p>お越しいただきありがとうございます！</p>
           <p>
-            お越しいただきありがとうございます！<br />
-            このサイトは、エンジニアである"hiroy"のポートフォリオサイトです。<br />
-            これまで開発してきた制作物やスキルセット、簡単な経歴を一覧にまとめています。<br />
-            作ったミニゲームもあるので良ければ楽しんでください！<br />
-            技術的なアウトプットだけでなく、趣味の天気観察や車など、<br />エンジニアという枠にとらわれない様々なことにも触れています。<br />
+            このサイトは、エンジニアである"hiroy"のポートフォリオサイトです。<br/>
+            これまで開発してきた制作物やスキルセット、簡単な経歴を一覧にまとめています。<br/>
+            作ったミニゲームもあるので良ければ楽しんでください！
+          </p>
+          <p>
+            技術的なアウトプットだけでなく、趣味の天気観察や車など、<br />
+            エンジニアという枠にとらわれない様々なことにも触れています。<br />
             このサイトを通して、私の人となりや興味関心について知っていただけると嬉しいです。<br />
           </p>
         </div>
@@ -58,8 +62,7 @@ export default function PortfolioMain() {
       <div id="product-container" className="full-height-content">
         <div id="product" className="center-content">
           <h1># Developed Product List</h1>
-          <p>準備中..... しばらくお待ちください.</p>
-          <a href="https://github.com/lunasky-hy" target="_blank">Github</a>
+          <DevelopmentList />
         </div>
       </div>
       <div id="skillset-container" className="full-height-content">

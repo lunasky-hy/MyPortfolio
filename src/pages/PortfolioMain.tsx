@@ -1,6 +1,7 @@
 import React from "react";
 import MoonNightImg from "../assets/moon_night.png";
 import DevelopmentList from "./components/DevelopmentList";
+import LifeLogs from "./components/LifeLogs";
 
 export default function PortfolioMain() {
   const [displayedTitleLen, setTitleLen] = React.useState(0);
@@ -56,7 +57,7 @@ export default function PortfolioMain() {
       <div id="lifelog-container" className="full-height-content">
         <div id="lifelog" className="center-content">
           <h1># Life Logs</h1>
-          <p>準備中..... しばらくお待ちください.</p>
+          <LifeLogs />
         </div>
       </div>
       <div id="product-container" className="full-height-content">

@@ -3,6 +3,7 @@ import NextTodoAppImg from "/src/assets/next-todo.png";
 import BlankQuestionMakerImg from "/src/assets/blank-question-maker.png";
 import WeatherMapImg from "/src/assets/weather-map.png";
 import DigitalSignageImg from "/src/assets/digital-signage.png";
+import FinanceManageImg from "/src/assets/finance-manager.png";
 
 type DevelopmentProductType = {
     name: string;
@@ -31,6 +32,24 @@ const GithubIcon = () => (
   </svg>
 );
 
+const ExternalLinkIcon = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+    <polyline points="15 3 21 3 21 9"></polyline>
+    <line x1="10" y1="14" x2="21" y2="3"></line>
+  </svg>
+);
+
 // --- ここから編集してください ---
 // あなたのプロジェクトデータをこの配列に追加・編集してください
 const portfolioData: Array<DevelopmentProductType> = [
@@ -42,6 +61,15 @@ const portfolioData: Array<DevelopmentProductType> = [
     githubUrl: 'https://github.com/lunasky-hy/DigitalSignage',
     isPublic: false,
     applicationUrl: 'https://master.d2udx8cqh3uqg6.amplifyapp.com/#7.7/34.665/135.446',
+  },
+  {
+    name: 'マイ口座マネジメント',
+    description: '自分のためだけに作った、口座の管理アプリ。過去の履歴だけでなく、将来の収入・支出を入力して、口座残高の推移を見れる。',
+    imageUrl: FinanceManageImg,
+    technologies: ['React', 'Typescript', 'Vive coding', 'gemini'],
+    githubUrl: 'https://github.com/lunasky-hy/personal-finance-manager',
+    isPublic: true,
+    applicationUrl: 'https://lunasky-hy.github.io/personal-finance-manager/',
   },
   {
     name: 'シンプルなタスク管理アプリ',
@@ -117,16 +145,28 @@ function ProjectCard({ project }: ProjectCardProps) {
           </div>
         </div>
         
-        {project.isPublic && <a
-            href={project.githubUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-gray-800 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-300 hover:bg-gray-700"
-          >
-            <GithubIcon />
-            <span>GitHubで見る</span>
-          </a>
-        }
+        <div className="flex items-center gap-4">
+          {project.isPublic && <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-gray-800 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-300 hover:bg-gray-700"
+            >
+              <GithubIcon />
+              <span>GitHub</span>
+            </a>
+          }
+          {project.applicationUrl && <a
+              href={project.applicationUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-blue-100 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-300 hover:bg-blue-400"
+            >
+              <ExternalLinkIcon />
+              <span>開く</span>
+            </a>
+          }
+        </div>
       </div>
     </div>
   );

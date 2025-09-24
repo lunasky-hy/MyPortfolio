@@ -61,6 +61,10 @@ h1#title-response {
   color: #c0c0c0;
 }
 
+div#index-content {
+  height: 500px;
+}
+
 .title-fadein {
   animation: normal titleFadeiIn 1s;
 }
@@ -78,9 +82,13 @@ h1#title-response {
   width: max-content;
 }
 
-#index-list > li:hover {
+#index-list > li > a {
+  color: white;
+  text-decoration: none;
+}
+
+#index-list > li > a:hover {
   border-bottom: 1px #c0c0c0 solid;
-  margin-bottom: -1px;
 }
 
 #readme-container {

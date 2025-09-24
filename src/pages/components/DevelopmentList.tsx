@@ -1,10 +1,17 @@
+import React from "react";
+import NextTodoAppImg from "/src/assets/next-todo.png";
+import BlankQuestionMakerImg from "/src/assets/blank-question-maker.png";
+import WeatherMapImg from "/src/assets/weather-map.png";
+import DigitalSignageImg from "/src/assets/digital-signage.png";
+
 type DevelopmentProductType = {
-    id: number;
     name: string;
     description: string;
     imageUrl: string;
     technologies: string[];
     githubUrl: string;
+    isPublic: boolean;
+    applicationUrl?: string;
 }
 
 // アイコンコンポーネント (Lucide Reactなどからインポートするか、SVGを直接使用)
@@ -28,36 +35,56 @@ const GithubIcon = () => (
 // あなたのプロジェクトデータをこの配列に追加・編集してください
 const portfolioData: Array<DevelopmentProductType> = [
   {
-    id: 1,
-    name: '（サンプル）Eコマースサイト',
-    description: 'ReactとFirebaseで構築したモダンなEコマースプラットフォームです。',
-    imageUrl: 'https://placehold.co/600x400/a7c7e7/ffffff?text=E-Commerce',
-    technologies: ['React', 'Firebase', 'Tailwind CSS', 'Stripe'],
-    githubUrl: 'https://github.com/your-username/ecommerce-project',
+    name: '個人向けデジタルサイネージWeb',
+    description: '気象、鉄道運行、ニュースなど様々情報をかっこよく表示するサイネージ。諸事情で公開していません。見たい方はお問い合わせください。',
+    imageUrl: DigitalSignageImg,
+    technologies: ['React', 'mapbox', 'Scraping', 'Signage'],
+    githubUrl: 'https://github.com/lunasky-hy/DigitalSignage',
+    isPublic: false,
+    applicationUrl: 'https://master.d2udx8cqh3uqg6.amplifyapp.com/#7.7/34.665/135.446',
   },
   {
-    id: 2,
-    name: '（サンプル）タスク管理アプリ',
-    description: 'Next.js製のリアルタイムタスク管理アプリ。チームでの利用を想定。',
-    imageUrl: 'https://placehold.co/600x400/d1d4f9/ffffff?text=Task+Manager',
-    technologies: ['Next.js', 'TypeScript', 'GraphQL', 'PostgreSQL'],
-    githubUrl: 'https://github.com/your-username/task-manager-app',
+    name: 'シンプルなタスク管理アプリ',
+    description: 'Next.js製のリアルタイムタスク管理アプリ。シンプルデザインで設計。RESTfulAPIでのアクセスもできるように構築中。GitHubアカウントでログイン可能。',
+    imageUrl: NextTodoAppImg,
+    technologies: ['Next.js', 'TypeScript', 'GCP', 'Firestore', 'RESTful API'],
+    githubUrl: 'https://github.com/lunasky-hy/next-todoapp',
+    isPublic: true,
+    applicationUrl: 'https://next-todo-191458548912.asia-northeast1.run.app/',
   },
   {
-    id: 3,
-    name: '（サンプル）個人ブログ',
-    description: 'ヘッドレスCMSと連携した、静的サイトジェネレーターによるブログ。',
-    imageUrl: 'https://placehold.co/600x400/fde2e4/ffffff?text=Personal+Blog',
-    technologies: ['Gatsby', 'React', 'Contentful', 'Netlify'],
-    githubUrl: 'https://github.com/your-username/personal-blog',
+    name: 'AndroidAuto対応 ナビアプリ',
+    description: 'AndroidAutoに対応した、ドライブナビに最適化したアプリ。AIも連携したい（希望）',
+    imageUrl: 'https://placehold.co/600x400/fde2e4/ffffff?text=Drive+Navigation+App',
+    technologies: ['Android', 'Kotlin', 'Google Map', 'Android Auto'],
+    githubUrl: 'https://github.com/lunasky-hy/HarukaRoute',
+    isPublic: true,
   },
   {
-    id: 4,
-    name: '（サンプル）天気予報アプリ',
-    description: '外部APIを利用して、現在地と検索した都市の天気を表示します。',
-    imageUrl: 'https://placehold.co/600x400/cce5cc/ffffff?text=Weather+App',
-    technologies: ['JavaScript', 'HTML', 'CSS', 'OpenWeatherMap API'],
-    githubUrl: 'https://github.com/your-username/weather-app',
+    name: 'マークダウン穴埋め問題メーカー',
+    description: 'マークダウンを入力し、テキストを選択すれば穴埋め問題を簡単に作成できるアプリ。',
+    imageUrl: BlankQuestionMakerImg,
+    technologies: ['React', 'Typescript'],
+    githubUrl: 'https://github.com/lunasky-hy/fill-blank-question',
+    applicationUrl: 'https://lunasky-hy.github.io/fill-blank-question/',
+    isPublic: true,
+  },
+  {
+    name: 'SPRESENSE GPSロガー',
+    description: 'SPRESENSEで高性能GPSロガーを作成中（できてない）',
+    imageUrl: 'https://placehold.co/600x400/a7c7e7/ffffff?text=Spresense+GPS+Logger',
+    technologies: ['Spresense', 'C', '組み込み'],
+    githubUrl: 'https://github.com/lunasky-hy/spresense-gpslogger',
+    isPublic: true,
+  },
+  {
+    name: '気象天気図まとめ',
+    description: '気象庁のマニアック天気図を簡単にみられるまとめサイト',
+    imageUrl: WeatherMapImg,
+    technologies: ['HTML', '気象'],
+    githubUrl: 'https://github.com/lunasky-hy/WeatherSiteMap',
+    isPublic: true,
+    applicationUrl: 'https://lunasky-hy.github.io/WeatherSiteMap/',
   },
 ];
 // --- ここまで編集してください ---
@@ -78,7 +105,7 @@ function ProjectCard({ project }: ProjectCardProps) {
       
       <div className="p-6">
         <h3 className="text-2xl font-bold text-gray-800 mb-2">{project.name}</h3>
-        <p className="text-gray-600 mb-4 h-12">{project.description}</p>
+        <p className="text-gray-600 mb-4 min-h-12">{project.description}</p>
         <div className="mb-4">
           <h4 className="text-sm font-semibold text-gray-500 mb-2">利用技術</h4>
           <div className="flex flex-wrap gap-2">
@@ -90,15 +117,16 @@ function ProjectCard({ project }: ProjectCardProps) {
           </div>
         </div>
         
-        <a
-          href={project.githubUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 bg-gray-800 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-300 hover:bg-gray-700"
-        >
-          <GithubIcon />
-          <span>GitHubで見る</span>
-        </a>
+        {project.isPublic && <a
+            href={project.githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 bg-gray-800 text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-300 hover:bg-gray-700"
+          >
+            <GithubIcon />
+            <span>GitHubで見る</span>
+          </a>
+        }
       </div>
     </div>
   );
@@ -106,13 +134,63 @@ function ProjectCard({ project }: ProjectCardProps) {
 
 // ポートフォリオ全体を表示するメインコンポーネント
 export default function DevelopmentList() {
-  return (<div className="container mx-auto px-4 py-12">
-    {/* プロジェクト一覧 */}
+  const scrollContainerRef = React.useRef<HTMLDivElement>(null);
+  const [isAtStart, setIsAtStart] = React.useState(true);
+  const [isAtEnd, setIsAtEnd] = React.useState(false);
+
+  const scroll = (scrollOffset: number) => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({ left: scrollOffset, behavior: 'smooth' });
+    }
+  };
+
+  const checkScrollPosition = () => {
+    if (scrollContainerRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current;
+      setIsAtStart(scrollLeft === 0);
+      setIsAtEnd(scrollLeft + clientWidth >= scrollWidth - 1);
+    }
+  };
+
+  React.useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (container) {
+      checkScrollPosition();
+      container.addEventListener('scroll', checkScrollPosition);
+      return () => container.removeEventListener('scroll', checkScrollPosition);
+    }
+  }, []);
+
+  return (
+    <div className="container mx-auto px-4 py-12">
       {portfolioData.length > 0 ? (
-        <div className="flex overflow-x-auto space-x-8 pt-8 pb-16 -mx-4 px-4">
-          {portfolioData.map((project) => (
-            <ProjectCard key={project.id} project={project} />
-          ))}
+        <div className="relative">
+          <div 
+            ref={scrollContainerRef} 
+            className="flex overflow-x-auto space-x-8 pt-8 pb-16 -mx-4 px-4 scrollbar-hide"
+          >
+            {portfolioData.map((project, idx) => (
+              <div key={idx} className="flex-shrink-0 w-1/4">
+                <ProjectCard project={project} />
+              </div>
+            ))}
+          </div>
+          {!isAtStart && (
+            <button 
+              onClick={() => scroll(-500)} 
+              className="absolute top-1/2 left-0 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md z-10"
+            >
+              ◀
+            </button>
+          )}
+          {!isAtEnd && (
+            <button 
+              onClick={() => scroll(500)} 
+              className="absolute top-1/2 right-0 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md z-10"
+            >
+              ▶
+            </button>
+          )}
         </div>
       ) : (
         <div className="text-center py-12">

@@ -10,33 +10,21 @@ type LifeLogType = {
 const lifeLogData: LifeLogType[] = [
   {
     id: 1,
-    date: '2018年4月',
-    title: '〇〇大学 入学',
-    comment: '情報科学を専攻。Web技術の基礎を学び始めました。',
+    date: '2014年4月',
+    title: '高専入学',
+    comment: '電気・情報系の学科にて電気・通信・ITの基礎を学ぶ。',
   },
   {
     id: 2,
-    date: '2021年10月',
-    title: '長期インターンシップ開始',
-    comment: '株式会社△△にて、Reactを使ったフロントエンド開発を経験。',
+    date: '2019年4月',
+    title: '筑波大学',
+    comment: '情報科学を専攻。',
   },
   {
     id: 3,
-    date: '2022年3月',
-    title: '〇〇大学 卒業',
-    comment: '卒業研究では、機械学習を用いた画像認識システムを構築。',
-  },
-  {
-    id: 4,
     date: '2022年4月',
-    title: '株式会社×× 入社',
-    comment: 'Webエンジニアとしてキャリアをスタート。現在に至ります。',
-  },
-  {
-    id: 5,
-    date: '2023年5月',
-    title: '資格「基本情報技術者」取得',
-    comment: '体系的な知識の証明として、国家資格を取得しました。',
+    title: '社会人 鉄道会社',
+    comment: `なぜか鉄道会社に。土方もやりつつ、社内ITエンジニアに。\n現在に至ります。`,
   },
 ];
 // --- ここまで編集してください ---
@@ -60,7 +48,9 @@ const LogItem = ({ item, isLast }: LogItemProps) => {
       <div className="pb-10">
         <p className="text-sm text-gray-500 mb-1">{item.date}</p>
         <h3 className="text-xl font-semibold text-gray-800 mb-2">{item.title}</h3>
-        <p className="text-gray-600">{item.comment}</p>
+        {item.comment.split('\n').map((text, idx) => {
+          return <p key={idx} className="text-gray-600">{text}</p>;
+        })}
       </div>
     </div>
   );
